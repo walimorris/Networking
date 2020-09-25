@@ -11,7 +11,7 @@ public class GenerateCharacters {
         int start = firstPrintableCharacter;
         byte[] line = new byte[numberOfCharactersPerLine + 2];                      // +2 is for the carriage return and linefeed
 
-        while (true) {                                                            // infinite loop
+        while (true) {                                                              // BEWARE: INFINITE LOOP!
             for (int i = start; i < start + numberOfCharactersPerLine; i++) {
                 line[i - start] = (byte) ((i - firstPrintableCharacter)
                         % numberOfPrintableCharacters + firstPrintableCharacter);
