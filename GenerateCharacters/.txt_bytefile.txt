@@ -1,0 +1,1 @@
+This is a test file who's main purpose is to be read into a input stream.
