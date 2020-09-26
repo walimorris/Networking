@@ -8,6 +8,10 @@ import static com.morris.networking.GenerateCharacters.generateCharacters;
 
 public class Main {
     public static void main(String[] args) {
+        /**
+         * This first portion of the program is an example using the generateCharacters method
+         * which generates an infinite outputstrem of characters to a txt file.
+         */
         final String OUTPUT = "/tmp/generatedCharacters.txt";              // sends output stream to this file
         System.out.println("Infinite stream will be sent to: " + OUTPUT);
         try (OutputStream out = new FileOutputStream(OUTPUT)) {            // initializes new file output stream
