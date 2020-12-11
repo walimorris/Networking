@@ -1,4 +1,4 @@
-package com.morris.leetcode;
+package com.morris.networking;
 
 import java.io.IOException;
 import java.io.InputStream;
