@@ -25,7 +25,8 @@ public class MultiThreadedMaxFinder {
         Future<Integer> future2 = service.submit(task2);
 
         /* Should explicitly call ExecutorService's shutdown() method, otherwise the
-         * service continues to run(wait for more tasks to complete on the open threads).
+         * service continues to run(wait for more tasks to complete on the two open
+         * threads).
          */
         service.shutdown();
 
