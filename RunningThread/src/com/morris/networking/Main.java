@@ -25,7 +25,7 @@ public class Main {
         /* In this case, the code is much smaller and the implementation is hidden
          * from users of the MultiThreadedMaxFinder class. Lastly, implementation
          * is very fast as each subarray is searched at the same time! Think of
-         * searching a very large array. 
+         * searching a very large array.
          */
         try {
             System.out.println(MultiThreadedMaxFinder.max(nums));
