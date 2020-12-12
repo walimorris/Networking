@@ -22,6 +22,5 @@ public class MyRunningThread implements Runnable {
     @Override
     public void run() {
         IntStream.range(0, n + 1).forEach( x -> action.run());
-
     }
 }
