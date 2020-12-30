@@ -3,12 +3,11 @@ package com.morris.networking;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SimpleEchoServer {
-    ServerSocket server;
+    private final ServerSocket server;
 
     public SimpleEchoServer(int port) throws IOException {
         server = new ServerSocket(port);
@@ -30,17 +29,19 @@ public class SimpleEchoServer {
         return clientSocket;
     }
 
-    public PrintWriter createClientWriter(Socket clientSocket) throws IOException {
-        PrintWriter clientWriter = null;
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
-                clientSocket.getInputStream()))) {
-            clientWriter = new PrintWriter(clientSocket.getOutputStream(), true);
+    public BufferedReader createClientWriter(Socket clientSocket) throws IOException {
+        BufferedReader bufferedReader = null;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(
+                clientSocket.getInputStream()));
         } catch (IOException e) {
             System.out.println(e.getMessage());
             server.close();
         }
-        return clientWriter;
+        return bufferedReader;
     }
 
-
+    public int getHostIp() {
+        return Integer.getInteger(server.getInetAddress().toString());
+    }
 }

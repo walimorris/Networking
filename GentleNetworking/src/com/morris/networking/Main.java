@@ -1,7 +1,7 @@
 package com.morris.networking;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Main {
@@ -10,7 +10,12 @@ public class Main {
         System.out.println("EchoServer running: " + echoServer.echoServerIsRunning());
 
         Socket clientSocket = echoServer.receiveClientSocket();
-        PrintWriter clientWriter = echoServer.createClientWriter(clientSocket);
+        BufferedReader clientWriter = echoServer.createClientWriter(clientSocket);
+
+        String incoming;
+        while ((incoming = clientWriter.readLine()) != null) {
+            System.out.println("Server: " + incoming);
+
 
         try {
             Thread.sleep(2000);
